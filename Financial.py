@@ -16,4 +16,4 @@ for i in range(2,len(df.GOOG)):
 for trace in fig['data']: 
      trace['showlegend'] = False
 fig.update_traces(hoverinfo="x,text")
-fig.show()
+#fig.show()
