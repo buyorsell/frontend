@@ -1,0 +1,47 @@
+import numpy as np
+import plotly.io as pio
+import random
+import plotly.graph_objects as go
+import pandas as pd
+import plotly.express as px
+from plotly.subplots import make_subplots
+from bokeh.palettes import RdYlBu
+import string
+
+color_set = RdYlBu[11]
+color_set=color_set[::-1]
+opacity = 0.9
+words=[["".join(random.choice(string.ascii_letters) for j in range(random.randint(3,10))) 
+        for d in range(random.randint(3,7))] for i in range(54) for z in range(54)]
+for i in range(len(words)):
+  a[i]=', '.join(a[i])
+x=[i for i in range(53)]
+  y_lev = np.random.random((len(color_set), 53))
+y_lev = y_lev / np.linalg.norm(y_lev, ord=1, axis=0).reshape((1, -1))
+y_lev = np.cumsum(y_lev, axis=0)[::-1]
+
+def hex_to_rgb(hex_color: str) -> tuple:
+    hex_color = hex_color.lstrip("#")
+    if len(hex_color) == 3:
+        hex_color = hex_color * 2
+    return int(hex_color[0:2], 16), int(hex_color[2:4], 16), int(hex_color[4:6], 16)
+
+
+fig = go.Figure()
+fig.update_layout(title_text='Cross-Colour')
+for c in range(11):
+    fig.add_trace(go.Scatter(x=x,y=y_lev[c],
+    line_color=f"rgba{(*hex_to_rgb(color_set[c]), opacity)}",
+    fill='tozeroy',
+    mode='lines',
+    fillcolor=f"rgba{(*hex_to_rgb(color_set[c]), opacity)}",
+    opacity=0.11,
+    line=dict(width=0.4, color=f"rgba{(*hex_to_rgb(color_set[c]), opacity)}"),
+    name='Possibility '+ str(c),
+    text= words
+    )) 
+fig.update_traces(hoverinfo="x+y, text")
+#fig.add_trace(go.Scatter(x=x,y=y[0],mode='lines',line=dict(width=0.1),hoverinfo='none',name='skip'))
+fig.update_layout(legend_orientation="h",yaxis_range=(0, 1))
+
+fig.show()
