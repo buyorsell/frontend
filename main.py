@@ -16,7 +16,7 @@ app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
 # assume you have a "long-form" data frame
 # see https://plotly.com/python/px-arguments/ for more options
-
+app.title = "VTB BOSS"
 app.layout = html.Div(children=[
     html.H1(children='Покупать или продавать?'),
 
