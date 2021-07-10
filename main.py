@@ -8,7 +8,7 @@ import dash_core_components as dcc
 import dash_html_components as html
 import plotly.express as px
 import pandas as pd
-from Financial import fig
+from View_Statistics import fig, max_news_count, min_news_count, mean_news_count
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
@@ -18,17 +18,23 @@ app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 # see https://plotly.com/python/px-arguments/ for more options
 
 app.layout = html.Div(children=[
-    html.H1(children='Buy Or Sell?'),
+    html.H1(children='Покупать или продавать?'),
 
-    html.Div(children='''
-        Financial chart.
-    '''),
+	html.H2(children='Статистика по базе данных новостей'),
 
-    dcc.Graph(
-        id='graph',
-        figure=fig
-    )
+	html.Div(children=[
+		html.H6(children='Коммерсант: количество новостей за всё время по неделям'),
+		html.P(children=('Максимальное количество новостей за день: ' + str(max_news_count["title"]))),
+		html.P(children=(
+			'Минимальное количество новостей за день: ' + str(min_news_count["title"]))),
+		html.P(children=(
+			'Среднее количество новостей за день: ' + str(int(mean_news_count["title"])))),
+		dcc.Graph(
+			id='graph',
+			figure=fig
+		),
+	])
 ])
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(debug=False)
