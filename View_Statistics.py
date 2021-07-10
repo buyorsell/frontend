@@ -10,7 +10,7 @@ from sqlalchemy import (
 )
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
-from bokeh.palettes import Viridis256
+from bokeh.palettes import Viridis256, Blues256
 import os
 
 
@@ -93,16 +93,17 @@ for key, value in make.items():
     give.append(sum)
     sum=0
     count=0
-color=[]
-for i in Viridis256:
-    color.append(i)
-Viridis256[:all]
-color2=[]
+color = []
+for id, c in enumerate(Blues256):
+    if id < 160:
+        color.append(c)
+color = color[::-2]
+color2 = []
 for i in range(len(give)):
-  if give[i]==0:
+  if give[i] == 0:
     color2.append('white')
   else:
-    color2.append(give[i])
+    color2.append(color[give[i]])
 fig=go.Figure(go.Scatter(x=days,y=give,mode='markers',marker=dict(size=give,color=color2),text=days))
 fig.update_traces(hoverinfo="text,y")
 #fig.show()
