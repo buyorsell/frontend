@@ -10,11 +10,14 @@ from sqlalchemy import (
 )
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+from bokeh.palettes import Viridis256
+import os
+
 
 
 
 Base = declarative_base()
-
+engine = create_engine(os.environ.get('PostgresDB'))
 
 class Meduza(Base):
     __tablename__ = 'meduza'
@@ -53,7 +56,9 @@ session = DBSession()
 dataset = pd.read_sql(session.query(Kommersant).statement,session.bind) 
 dataset["date"] = dataset['datetime'].apply(lambda x: x.date())
 dataset = dataset.sort_values(by=['datetime'], ascending=False)
-
+max_news_count = dataset.groupby(["date"])[["title"]].count().max()
+min_news_count = dataset.groupby(["date"])[["title"]].count().min()
+mean_news_count = dataset.groupby(["date"])[["title"]].count().mean()
 import plotly.express as px
 import plotly.graph_objects as go
 import datetime
@@ -80,7 +85,7 @@ give=[]
 count=0
 sum=0
 for key, value in make.items():
-  if count!=10:
+  if count!=7:
     sum+=value
     give.append(0)
     count+=1
@@ -88,7 +93,6 @@ for key, value in make.items():
     give.append(sum)
     sum=0
     count=0
-from bokeh.palettes import Viridis256
 color=[]
 for i in Viridis256:
     color.append(i)
@@ -101,4 +105,4 @@ for i in range(len(give)):
     color2.append(give[i])
 fig=go.Figure(go.Scatter(x=days,y=give,mode='markers',marker=dict(size=give,color=color2),text=days))
 fig.update_traces(hoverinfo="text,y")
-fig.show()
+#fig.show()
