@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>VTB BOSS</title>
+
+	<link rel="icon" href="images/favicon.png">
+
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="styles/securities.css">
+
+	<script type="text/javascript" src="js/plotly.js"></script>
+	<script type="text/javascript" src="js/lodash.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="scripts/securities.js"></script>
+
+</head>
+<body onload="onBodyLoad();">
+	<header class="py-2 text-center">
+		<a class="navbar-brand" href="index.html">
+			<img src="images/logo.png" width="170" height="35">
+		</a>
+	</header>
+	<nav class="d-flex justify-content-center" style="overflow-x: auto;">
+		<ul class="nav">
+			<li class="mx-2 nav-item">
+				<a class="nav-link text-white bg-primary rounded-pill"href="securities.html">Аналитика</a>
+			</li>
+			<li class="mx-2 nav-item">
+				<a class="nav-link text-dark bg-light rounded-pill" href="news.html">События</a>
+			</li>
+			<li class="mx-2 nav-item">
+				<a class="nav-link text-dark bg-light rounded-pill" href="stats.html">Статистика</a>
+			</li>
+		</ul>
+	</nav>
+	<main>
+		<div class="container py-3">
+			<div class="row" id="sec">
+				<script id="template-sec" type="text/template">
+					<div class="my-2 col-sm-3">
+						<div class="card">
+							<div class="card-body">
+								<a class="d-flex justify-content-between align-items-center text-decoration-none" onclick="openSecRate('<%= sec_id %>')">
+									<div class="d-flex align-items-center">
+										<img class=" rounded-circle" src="logos/<%= sec_id %>.svg" height="40">
+										<div class="mx-3 d-flex flex-column">
+											<div><%= shortname %></div>
+											<div class="text-muted"><%= sec_id %></div>
+										</div>
+									</div>
+									<span class="bos <%= bos >= 0 ? "buy" : "sell" %>"> <%= Math.abs(bos) %></span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</script>
+			</div>
+		</div>
+	</main>
+</body>
+	
+</html>
