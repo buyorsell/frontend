@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>VTB BOSS</title>
+
+	<link rel="icon" href="images/favicon.png">
+
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="styles/analitics.css">
+
+	<script type="text/javascript" src="scripts/analitics.js"></script>
+	<script type="text/javascript" src="js/plotly.js"></script>
+	<script type="text/javascript" src="js/lodash.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/chart.js"></script>
+</head>
+<body onload="onBodyLoad();">
+	<header class="py-2 text-center">
+		<a class="navbar-brand" href="index.html">
+			<img src="images/logo.png" width="170" height="35">
+		</a>
+	</header>
+	<nav class="d-flex justify-content-center" style="overflow-x: auto;">
+		<ul class="nav">
+			<li class="m-2 nav-item">
+				<a class="nav-link text-white bg-primary rounded-pill" href="securities.html">Аналитика</a>
+			</li>
+			<li class="m-2 nav-item">
+				<a class="nav-link text-dark bg-light rounded-pill" href="news.html">События</a>
+			</li>
+			<li class="m-2 nav-item">
+				<a class="nav-link text-dark bg-light rounded-pill" href="stats.html">Статистика</a>
+			</li>
+		</ul>
+	</nav>
+	<main>
+		<div class="container py-3">
+			<div class="row">
+				<div class="col-sm-3 d-none d-lg-block">
+					<div id="secs"></div>
+				</div>
+				<div class="col-sm-6">
+					<div id="sent"></div>
+					<div id="plot"></div>
+				</div>
+				<div class="col-sm-3">
+					<div id="news"></div>
+				</div>
+			</div>
+		</div>
+	</main>
+	<script id="template-sec" type="text/template">
+		<div class="my-2 card">
+			<div class="card-body">
+				<a class="d-flex justify-content-between align-items-center text-decoration-none" onclick="onSecsChange('<%= sec_id %>')">
+					<div class="d-flex align-items-center">
+						<img class=" rounded-circle" src="logos/<%= sec_id %>.svg" height="40">
+						<div class="mx-3 d-flex flex-column">
+							<div><%= shortname %></div>
+							<div class="text-muted"><%= sec_id %></div>
+						</div>
+					</div>
+					<span class="bos <%= bos >= 0 ? "pos" : "neg" %>"> <%= Math.abs(bos) %></span>
+				</a>
+			</div>
+		</div>
+	</script>
+	<script id="template-sent" type="text/template">
+		<input type="week" class="my-2 form-control" id="date" min="2016-W01" onchange="onWeekChange(this.value)">
+		<div class="d-flex justify-content-between">
+			<div>Позитивный</div>
+			<div>Новостной фон</div>
+			<div>Негативный</div>	
+		</div>
+		<div class="progress">
+				<div class="progress-bar bg-pos" role="progressbar" style="width: <%= per_pos %>%"><%= per_pos %>%</div>
+				<div class="progress-bar bg-neg" role="progressbar" style="width: <%= per_neg %>%"><%= per_neg %>%</div>
+		</div>
+		<div class="d-flex justify-content-between">
+			<div class="text-muted"><%= num_pos %></div>
+			<div class="text-muted"><%= num_neg %></div>	
+		</div>
+	</script>
+	<script id="template-news" type="text/template">
+		<div class="my-2 card">
+			<div class="card-body">
+				<a href="<%= link %>" class="text-decoration-none" target="_blank">
+					<div><%= title %></div>
+					<div class="d-flex">
+						<span class="bos <%= bos >= 0 ? "pos" : "neg" %>"> <%= Math.abs(bos) %></span>
+						<div class="mx-2 text-muted"> <%= datetime %></div>
+					</div>
+				</a>
+			</div>
+		</div>
+	</script>
+</body>
+	
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>VTB BOSS</title>
+
+	<link rel="icon" href="images/favicon.png">
+	<link rel="stylesheet" href="css/bootstrap.css">
+
+	<link rel="stylesheet" href="styles3.css">
+
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/plotly.js"></script>
+	<script type="text/javascript" src="js/lodash.js"></script>
+	
+	<script type="text/javascript" src="scripts/news.js"></script>
+</head>
+<body onload="onBodyLoad();">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="container">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse justify-content-center navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link" href="index.html">Главная</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="stock.html">Котировки</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="stats.html">Статистика</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="news.html">Новости</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<main>
+		<div class="container py-3 scrollable">
+			<div class="row" id="news">
+				<script id="template-news" type="text/template">
+					<div class="py-2 col-sm-3">
+					<div class="card">
+						<div class="card-header"><%= title %></div>
+						<img class="card-img-top" src="https://buyorsell.ml/clouds/<%= id %>.png" height="220">
+						<div class="card-footer text-muted">
+    						<%= datetime %>
+  						</div>
+					</div>
+				</script>
+			</div>
+	</main>
+	
+</body>
+	
+</html>
