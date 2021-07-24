@@ -9,15 +9,17 @@
 	<link rel="icon" href="images/favicon.png">
 
 	<link rel="stylesheet" href="css/bootstrap.css">
-	<link rel="stylesheet" href="styles/analitics.css">
 
-	<script type="text/javascript" src="scripts/analitics.js"></script>
+	<link rel="stylesheet" href="stylesheet.css">
+
 	<script type="text/javascript" src="js/plotly.js"></script>
 	<script type="text/javascript" src="js/lodash.js"></script>
 	<script type="text/javascript" src="js/bootstrap.js"></script>
-	<script type="text/javascript" src="js/chart.js"></script>
+
+	<script type="text/javascript" src="scripts/analitics.js"></script>
+
 </head>
-<body onload="onBodyLoad();">
+<body>
 	<header class="py-2 text-center">
 		<a class="navbar-brand" href="index.html">
 			<img src="images/logo.png" width="170" height="35">
@@ -26,13 +28,13 @@
 	<nav class="d-flex justify-content-center" style="overflow-x: auto;">
 		<ul class="nav">
 			<li class="m-2 nav-item">
-				<a class="nav-link text-white bg-primary rounded-pill" href="securities.html">Аналитика</a>
+				<a class="nav-link text-dark rounded" href="news.html">Новости</a>
 			</li>
 			<li class="m-2 nav-item">
-				<a class="nav-link text-dark bg-light rounded-pill" href="news.html">События</a>
+				<a class="nav-link text-white rounded active" href="securities.html">Аналитика</a>
 			</li>
 			<li class="m-2 nav-item">
-				<a class="nav-link text-dark bg-light rounded-pill" href="stats.html">Статистика</a>
+				<a class="nav-link text-dark rounded" href="graphics.html">Графики</a>
 			</li>
 		</ul>
 	</nav>
@@ -44,7 +46,7 @@
 				</div>
 				<div class="col-sm-6">
 					<div id="sent"></div>
-					<div id="plot"></div>
+					<iframe class="plot" width="100%" height="100%" id="plot" sandbox="allow-scripts"></iframe>
 				</div>
 				<div class="col-sm-3">
 					<div id="news"></div>
@@ -55,7 +57,7 @@
 	<script id="template-sec" type="text/template">
 		<div class="my-2 card">
 			<div class="card-body">
-				<a class="d-flex justify-content-between align-items-center text-decoration-none" onclick="onSecsChange('<%= sec_id %>')">
+				<a class="d-flex justify-content-between align-items-center text-dark text-decoration-none" onclick="onSecsChange('<%= sec_id %>')">
 					<div class="d-flex align-items-center">
 						<img class=" rounded-circle" src="logos/<%= sec_id %>.svg" height="40">
 						<div class="mx-3 d-flex flex-column">
@@ -69,7 +71,7 @@
 		</div>
 	</script>
 	<script id="template-sent" type="text/template">
-		<input type="week" class="my-2 form-control" id="date" min="2016-W01" onchange="onWeekChange(this.value)">
+		<input type="week" class="my-2 form-control" id="week" min="2016-W01" onchange="onWeekChange(this.value)">
 		<div class="d-flex justify-content-between">
 			<div>Позитивный</div>
 			<div>Новостной фон</div>
@@ -87,7 +89,7 @@
 	<script id="template-news" type="text/template">
 		<div class="my-2 card">
 			<div class="card-body">
-				<a href="<%= link %>" class="text-decoration-none" target="_blank">
+				<a href="<%= link %>" class="text-dark text-decoration-none" target="_blank">
 					<div><%= title %></div>
 					<div class="d-flex">
 						<span class="bos <%= bos >= 0 ? "pos" : "neg" %>"> <%= Math.abs(bos) %></span>
