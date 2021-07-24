@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+	
+	font-family: 'Roboto', sans-serif;
+}
+
+.btn {
+
+	border: 1px solid #05A9FF;
+}
+
+.btn:hover {
+
+	color: #ffffff;
+	background-color: #05A9FF;
+}
+
+.bg-neg {
+	background-color: #ff392f;
+}
+
+.bg-pos {
+    background-color: #15ce62;
+}	
+	
+.bos:before {
+
+	display: inline-block;
+	content: "\200b";
+	width: .6em;
+
+	-webkit-mask-image: url(data:image/svg+xml;charset=utf-8;base64,PHN2ZyB2aWV3Qm94PSIwIDAgOCAxMiIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pbllNaW4gbWVldCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cGF0aCBmaWxsPSJjdXJyZW50Q29sb3IiIGQ9Ik00Ljc3NSA0Ljg4OUw1LjYgMCAwIDcuMTExaDMuMUwyIDEybDYtNy4xMTFINC43NzV6Ii8+Cjwvc3ZnPgo=);
+	-webkit-mask-repeat: no-repeat;
+	-webkit-mask-position: left center;
+	-webkit-mask-size: 100%;
+}
+
+.bar.pos {
+	background-color: #15ce62;
+}
+
+.bar.neg {
+	background-color: #ff392f;
+}
+
+.bos.pos {
+	color: #15ce62;
+}
+
+.bos.pos:before {
+	background-color: #15ce62;
+}
+
+.bos.neg {
+	color: #ff392f;
+}
+
+.bos.neg:before {
+	background-color: #ff392f;
+}
+
+.nav-link {
+	background-color: #F2F3F2;
+}
+
+.active {
+	background-color: #05A9FF;
+}
+
+.plot {
+	height: 40vh;
+}
+
+
+
+@media (min-width: 768px) {
+	
+	.plot {
+		height: 55vh;
+	}
+
+	#secs {
+		height: 75vh;
+		overflow: auto;
+	}
+
+	#news {
+		height: 75vh;
+		overflow: auto;
+	}
+
+	#test {
+		height: 20vh;
+	}
+	
+}
+
+::-webkit-scrollbar {
+	display: none;
+}
+

@@ -9,26 +9,28 @@
 	<link rel="icon" href="images/favicon.png">
 
 	<link rel="stylesheet" href="css/bootstrap.css">
-	<link rel="stylesheet" href="styles/securities.css">
+	
+	<link rel="stylesheet" href="stylesheet.css">
 
 	<script type="text/javascript" src="js/bootstrap.js"></script>	
 </head>
 <body>
-	<header class="py-2 bg-light text-center">
+	<header class="py-2 text-center">
 		<a class="navbar-brand" href="index.html">
 			<img src="images/logo.png" width="170" height="35">
 		</a>
 	</header>
-	<nav class="d-flex justify-content-center bg-light">
+	<nav class="d-flex justify-content-center" style="overflow-x: auto;">
 		<ul class="nav">
-			<li class="nav-item">
-				<a class="nav-link active"href="securities.html">Аналитика</a>
+			<li class="m-2 nav-item">
+				<a class="nav-link text-dark rounded" href="news.html">Новости</a>
 			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="news.html">События</a>
+			<li class="m-2 nav-item">
+				<a class="nav-link text-dark rounded" href="securities.html">Аналитика</a>
 			</li>
-			<li class="nav-item ">
-				<a class="nav-link" href="stats.html">Статистика</a>
+			
+			<li class="m-2 nav-item">
+				<a class="nav-link text-dark rounded" href="graphics.html">Графики</a>
 			</li>
 		</ul>
 	</nav>
@@ -43,21 +45,21 @@
 			<div class="row justify-content-center">
 				<div class="py-2 col-sm-3">
 					<div class="card">
-						<div class="card-header">Покупать или продавать?</div>
+						<div class="card-header">Разбогатеть читая новости?</div>
 						<div class="card-body">
-							<h5 class="card-title">Рекомендации</h5>
-							<p class="card-text">покупки и продажи<br>ивестиционных активов</p>
-							<a href="stock.html" class="w-100 btn btn-outline-primary">Открыть</a>
+							<h5 class="card-title">Обзор</h5>
+							<p class="card-text">новостного потока и<br>финансового рынка</p>
+							<a href="news.html" class="w-100 btn">Открыть</a>
 						</div>
 					</div>
 				</div>
 				<div class="py-2 col-sm-3">
 					<div class="card">
-						<div class="card-header">Разбогатеть читая новости?</div>
+						<div class="card-header">Покупать или продавать?</div>
 						<div class="card-body">
 							<h5 class="card-title">Аналитика</h5>
-							<p class="card-text">новостного потока и<br>финансового рынка</p>
-							<a href="news.html" class="w-100 btn btn-outline-primary">Открыть</a>
+							<p class="card-text">покупки и продажи<br>ивестиционных активов</p>
+							<a href="securities.html" class="w-100 btn">Открыть</a>
 						</div>
 					</div>
 				</div>
@@ -65,9 +67,9 @@
 					<div class="card">
 						<div class="card-header">Понять что произошло?</div>
 						<div class="card-body">
-							<h5 class="card-title">Статистика</h5>
+							<h5 class="card-title">Графики</h5>
 							<p class="card-text">собранных данных<br>за прошедшее время</p>
-							<a href="news.html" class="w-100 btn btn-outline-primary">Открыть</a>
+							<a href="graphics.html" class="w-100 btn">Открыть</a>
 						</div>
 					</div>
 				</div>

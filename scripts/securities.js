@@ -22,12 +22,7 @@ function openSecRate(secid) {
 	document.location = "analitics.html?secid=" + secid;
 }
 
+onload = function() {
 
-function onBodyLoad()
-{
-	
 	loadSecList();
 }
-
-
-
