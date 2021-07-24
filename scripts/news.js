@@ -35,7 +35,7 @@ onload = function() {
 
 onscroll = function() {
 
-    var scrollHeight = Math.min(
+    var scrollHeight = Math.max(
 
         document.body.scrollHeight, document.documentElement.scrollHeight,
 
@@ -45,7 +45,7 @@ onscroll = function() {
 
     );
 
-    if(window.scrollY >= scrollHeight - innerHeight) {
+    if(window.scrollY >= scrollHeight - innerHeight - 1) {
 
     	page ++;
 
