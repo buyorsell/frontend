@@ -8,14 +8,48 @@ async function loadNewsList(page) {
 
 			template_lg = _.template(document.getElementById('template-news').innerHTML);	
 			
+			options = {
+				year: 'numeric',
+				month: 'numeric',
+				day: 'numeric',
+				hour: 'numeric',
+				minute: 'numeric',
+				timezone: 'UTC'
+			};
+
+			ticker.datetime = new Date(ticker.datetime).toLocaleString("ru", options)
+
 			sec = template_lg(ticker);
 
-			document.getElementById('news').innerHTML += sec;
+			document.getElementById('feed').innerHTML += sec;
 		}
 	);
 }
 
-function onBodyLoad() {
+onload = function() {
 	
-	loadNewsList(0);
+	page = 0
+
+	loadNewsList(page);
+}
+
+onscroll = function() {
+
+    var scrollHeight = Math.max(
+
+        document.body.scrollHeight, document.documentElement.scrollHeight,
+
+        document.body.offsetHeight, document.documentElement.offsetHeight,
+
+        document.body.clientHeight, document.documentElement.clientHeight
+
+    );
+
+    if(window.scrollY >= scrollHeight - innerHeight - 1) {
+
+    	page ++;
+
+    	loadNewsList(page);
+    }; 
+
 }
