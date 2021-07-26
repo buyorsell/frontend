@@ -2,7 +2,7 @@ Date.prototype.getWeek = function() {
 	
 	onejan = new Date(this.getFullYear(), 0, 4);
 
-	return Math.ceil((((this - onejan) / 86400000) + onejan.getDay() + 1) / 7);
+	return Math.ceil((((this - onejan) / 86400000) + onejan.getDay() + 1) / 7) - 1;
 }
 
 function declOfNum(number, titles) {  
@@ -17,7 +17,20 @@ async function loadSecsPlot() {
 	document.getElementById('plot').src = `https://buyorsell.ml/stock/${secid}.html`;
 }
 
-function renderSentBook(data) {
+async function renderSentBook(data) {
+
+	response = await fetch('https://buyorsell.ml/api/db/stock');
+
+	result = await response.json();
+
+	result.forEach(async function(sec) {
+
+		if(secid == sec.sec_id) {
+
+			sn = sec.shortname;
+
+		};
+	});
 
 	bos_pos = data.bos_positive
 	bos_neg = data.bos_negative
@@ -25,8 +38,10 @@ function renderSentBook(data) {
 	per_pos = Math.round(bos_pos / (bos_pos + Math.abs(bos_neg)) * 100);
 
 	template = _.template(document.getElementById('template-sent').innerHTML);	
-			
+	
 	item = template({
+		name: sn,
+		sec_id: secid,
 		per_pos: per_pos,
 		per_neg: 100 - per_pos,
 		num_pos: `${data.num_positive} ${declOfNum(data.num_positive, ['новость', 'новости', 'новостей'])}`,
@@ -36,6 +51,13 @@ function renderSentBook(data) {
 	document.getElementById('sent').innerHTML = item;
 
 	document.getElementById('week').value = `${year}-W${week}`
+
+	d = new Date();
+	w = d.getWeek();
+	y = d.getFullYear();
+
+	document.getElementById('week').max = `${y}-W${w}`
+
 }
 
 function renderNewsList(data) {
@@ -72,12 +94,16 @@ function renderNewsList(data) {
 
 function renderSecsList(data) {
 
+	document.getElementById('secs').innerHTML = ""
+
 	data.forEach(function(ticker) {
 
 			template = _.template(document.getElementById('template-sec').innerHTML);	
 			
 			ticker.bos = (ticker.bos * 100).toFixed(1);
-			
+
+			ticker.color = secid == ticker.sec_id ? "#05A9FF" : "rgba(0, 0, 0, 0.125)" 
+
 			item = template(ticker);
 
 			document.getElementById('secs').innerHTML += item;
@@ -100,7 +126,7 @@ async function loadSecsList()
 	response = await fetch('https://buyorsell.ml/api/db/stock');
 
 	result = await response.json();
-	
+
 	renderSecsList(result);
 }
 
@@ -110,12 +136,13 @@ function onSecsChange(secid2) {
 	week = date.getWeek();
 	year = date.getFullYear();
 
-	unix = Math.round((new Date().getTime() / 1000) / (60*60*24*7));
+	unix = Math.round((new Date().getTime() / 1000) / (60*60*24*7)) - 1;
 
 	secid = secid2;
 
 	loadSecsPlot();
 	loadAnalitics();
+	loadSecsList();
 }
 
 function onWeekChange(date1) {
@@ -126,7 +153,7 @@ function onWeekChange(date1) {
 	date = new Date(year, 0, 1);
 	date.setDate(date.getDate() + (week * 7));
 	
-	unix = Math.round((date.getTime() / 1000) / (60*60*24*7))
+	unix = Math.round((date.getTime() / 1000) / (60*60*24*7));
 
 	loadAnalitics();
 }
@@ -139,7 +166,7 @@ onload = function() {
 	week = date.getWeek();
 	year = date.getFullYear();
 
-	unix = Math.round((new Date().getTime() / 1000) / (60*60*24*7));
+	unix = Math.round((new Date().getTime() / 1000) / (60*60*24*7)) - 1;
 
 	loadSecsList();
 	loadAnalitics();

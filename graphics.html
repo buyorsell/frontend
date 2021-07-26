@@ -25,16 +25,16 @@
 			<img src="images/logo.png" width="170" height="35">
 		</a>
 	</header>
-	<nav class="d-flex justify-content-center">
+	<nav class="d-flex justify-content-center" style="overflow-x: auto;">
 		<ul class="nav">
 			<li class="m-2 nav-item">
-				<a class="nav-link text-dark rounded" href="news.html">Новости</a>
+				<a class="nav-link" href="news.html">Новости</a>
 			</li>
 			<li class="m-2 nav-item">
-				<a class="nav-link text-dark rounded" href="securities.html">Аналитика</a>
+				<a class="nav-link" href="securities.html">Аналитика</a>
 			</li>
 			<li class="m-2 nav-item">
-				<a class="nav-link text-white rounded active" href="selector.html">Графики</a>
+				<a class="nav-link active" href="graphics.html">Графики</a>
 			</li>
 		</ul>
 	</nav>
@@ -56,7 +56,9 @@
 					<div class="m-2 card">
 						<div class="card-header">Тематический поток</div>
 						<div class="card-body">
+							<div class="text-center">Динамика темы в новостном потоке</div>
 							<iframe class="plot" width="100%" height="100%" id="tf_plot" sandbox="allow-scripts" src="https://buyorsell.ml/stock/tf_1.html"></iframe>
+							<div class="text-center">Распределение ключевых слов темы</div>
 							<iframe class="plot" width="100%" height="100%" id="dtm_plot" sandbox="allow-scripts" src="https://buyorsell.ml/stock/dtm_1.html"></iframe>
 						</div>
 						<div class="card-footer">
@@ -79,7 +81,7 @@
 		</div>
 	</main>
 	<script id="template-list" type="text/template">
-		<a class="mx-2 text-dark text-decoration-none <%= cls %>" id="<%= id %>" onclick="onPlotChange(this)"><%= name %></a>
+		<a class="mx-2 text-decoration-none <%= cls %>" id="<%= id %>" onclick="onPlotChange(this)" style="color: <%= color %>;"><%= name %></a>
 	</script>	
 </body>
 </html>

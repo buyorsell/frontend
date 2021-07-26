@@ -11,70 +11,76 @@
 	<link rel="stylesheet" href="css/bootstrap.css">
 	
 	<link rel="stylesheet" href="stylesheet.css">
+	<link rel="stylesheet" href="styleindex.css">
 
 	<script type="text/javascript" src="js/bootstrap.js"></script>	
 </head>
 <body>
 	<header class="py-2 text-center">
 		<a class="navbar-brand" href="index.html">
-			<img src="images/logo.png" width="170" height="35">
+			<img src="images/logo_light.png" width="170" height="35">
 		</a>
 	</header>
 	<nav class="d-flex justify-content-center" style="overflow-x: auto;">
 		<ul class="nav">
 			<li class="m-2 nav-item">
-				<a class="nav-link text-dark rounded" href="news.html">Новости</a>
+				<a class="nav-link" href="news.html">Новости</a>
 			</li>
 			<li class="m-2 nav-item">
-				<a class="nav-link text-dark rounded" href="securities.html">Аналитика</a>
+				<a class="nav-link" href="securities.html">Аналитика</a>
 			</li>
-			
 			<li class="m-2 nav-item">
-				<a class="nav-link text-dark rounded" href="graphics.html">Графики</a>
+				<a class="nav-link" href="graphics.html">Графики</a>
 			</li>
 		</ul>
 	</nav>
 	<main>
-		<div class="container col-sm-8 text-center py-3">
+		<div class="container text-center text-light py-3 font-weight-bold">
 			<h1>Инвестируй like a BOSS</h1>
-			<p class="fs-6 col-sm-8 mx-auto text-justify py-2">Buy Or Sell Service – брокерский сервис нового поколения, <br class="d-none d-sm-block">основу которого составляет полностью прозрачная аналитика, <br class="d-none d-sm-block">выявляющая связь между финансовым рынком и новостным потоком</p>
-			<hr>
+			<p class="fs-6 col-lg-8 mx-auto text-justify text-light text- py-2 font-weight-bold">Buy Or Sell Service – брокерский сервис нового поколения, <br class="d-none d-sm-block">основу которого составляет полностью прозрачная аналитика, <br class="d-none d-sm-block">выявляющая связь между финансовым рынком и новостным потоком</p>
+			<hr class="background-light">
 		</div>
 		
 		<div class="container text-center">
 			<div class="row justify-content-center">
-				<div class="py-2 col-sm-3">
-					<div class="card">
-						<div class="card-header">Разбогатеть читая новости?</div>
-						<div class="card-body">
-							<h5 class="card-title">Обзор</h5>
-							<p class="card-text">новостного потока и<br>финансового рынка</p>
-							<a href="news.html" class="w-100 btn">Открыть</a>
+				<div class="py-2 col-lg-4">
+					<a class="text-decoration-none" href="news.html">
+						<div class="card">
+							<div class="card-body">
+								<h5 class="card-title">Обзор</h5>
+								<p class="card-text">новостного потока и<br>финансового рынка</p>
+							</div>
+							<div class="card-footer">Разбогатеть читая новости?</div>
 						</div>
-					</div>
+					</a>
 				</div>
-				<div class="py-2 col-sm-3">
-					<div class="card">
-						<div class="card-header">Покупать или продавать?</div>
-						<div class="card-body">
-							<h5 class="card-title">Аналитика</h5>
-							<p class="card-text">покупки и продажи<br>ивестиционных активов</p>
-							<a href="securities.html" class="w-100 btn">Открыть</a>
+				<div class="py-2 col-lg-4">
+					<a class="text-decoration-none" href="securities.html">
+						<div class="card">
+							<div class="card-body">
+								<h5 class="card-title">Аналитика</h5>
+								<p class="card-text">покупки и продажи<br>ивестиционных активов</p>
+							</div>
+							<div class="card-footer">Покупать или продавать?</div>
 						</div>
-					</div>
+					</a>
 				</div>
-				<div class="py-2 col-sm-3">
-					<div class="card">
-						<div class="card-header">Понять что произошло?</div>
-						<div class="card-body">
-							<h5 class="card-title">Графики</h5>
-							<p class="card-text">собранных данных<br>за прошедшее время</p>
-							<a href="graphics.html" class="w-100 btn">Открыть</a>
+				<div class="py-2 col-lg-4">
+					<a class="text-decoration-none" href="graphics.html">
+						<div class="card">
+							<div class="card-body">
+								<h5 class="card-title">Графики</h5>
+								<p class="card-text">собранных данных<br>за прошедшее время</p>
+							</div>
+							<div class="card-footer">Понять что проиcодит?</div>	
 						</div>
-					</div>
+					</a>
 				</div>
 			</div>
 		</div>
 	</main>
+	<footer class="p-2 text-center bg-white">
+		<span class="text-muted">Сервис является пилотным проектом, разработанным в рамках программы «Большие Вызовы 2021» ОЦ «Сириус» с участием экспертов Банка ВТБ <br class="d-none d-sm-block">и носит исключительно демонстрационный <br class="d-sm-none">характер, не призывая пользователей принимать решения о покупке ценных <br class="d-sm-none">бумаг и прочих активов</span>
+	</footer>
 </body>
 </html>

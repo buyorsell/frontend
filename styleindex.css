@@ -1,0 +1,46 @@
+body {
+
+	background-image: url('images/background_blur.png');
+
+	
+      background-size: cover;
+
+}
+
+hr {
+	border-bottom: 2px solid #ffffff;
+	opacity: 1;
+}
+
+.card {
+
+	color: #002882;
+
+}
+
+.nav-link {
+
+	color: #ffffff;
+
+	border-bottom: 2px solid rgba(0, 0, 0, 0.0);
+}
+
+.nav-link:hover {
+
+	padding: 5px 10px;
+
+	color: #05A9FF;
+
+	border-bottom: 2px solid #05A9FF;
+  	bottom: -10px;
+}
+
+@media (min-width: 768px) {
+
+	footer {
+		width: 100%;
+		position: absolute;
+		bottom: 0;
+	}
+
+}

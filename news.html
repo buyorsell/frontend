@@ -27,13 +27,13 @@
 	<nav class="d-flex justify-content-center" style="overflow-x: auto;">
 		<ul class="nav">
 			<li class="m-2 nav-item">
-				<a class="nav-link text-white rounded active" href="news.html">Новости</a>
+				<a class="nav-link active" href="news.html">Новости</a>
 			</li>
 			<li class="m-2 nav-item">
-				<a class="nav-link text-dark rounded" href="securities.html">Аналитика</a>
+				<a class="nav-link" href="securities.html">Аналитика</a>
 			</li>
 			<li class="m-2 nav-item">
-				<a class="nav-link text-dark rounded" href="graphics.html">Графики</a>
+				<a class="nav-link" href="graphics.html">Графики</a>
 			</li>
 		</ul>
 	</nav>
@@ -45,9 +45,9 @@
 		</div>
 	</main>
 	<script id="template-news" type="text/template">
-		<div class="col-sm-3">
+		<div class="col-md-6 col-lg-3">
 			<a href="<%= link %>" class="text-dark text-decoration-none" target="_blank">
-				<div class="m-2 card text-center">
+				<div class="m-2 card text-center news">
 					<div class="card-header d-flex align-items-center" id="test">
 						<div><%= title %></div></div>
 					<img class="card-img-top" src="https://buyorsell.ml/clouds/<%= id %>.png" >

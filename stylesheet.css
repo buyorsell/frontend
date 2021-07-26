@@ -65,32 +65,72 @@ a {
 }
 
 .nav-link {
-	background-color: #F2F3F2;
+
+	transition: 0.5s;
+
+	padding: 5px 10px;
+
+	color: #6c757d;
+
+	border-bottom: 2px solid #ffffff;
+  	bottom: -10px;
+}
+
+.nav-link:hover {
+
+	padding: 5px 10px;
+
+	color: #05A9FF;
+
+	border-bottom: 2px solid #05A9FF;
+  	bottom: -10px;
 }
 
 .active {
-	background-color: #05A9FF;
+
+	color: #05A9FF;
+	
+	border-bottom: 2px solid #05A9FF;
+  	bottom: -10px;
 }
 
 .plot {
 	height: 40vh;
 }
 
+.list-item {
+
+	border: 1px solid rgba(0, 0, 0, 0.125);
+	border-radius: 0.25rem;
+
+	transition: 0.5s;
+}
+
+.list-item:hover {
+
+	border: 1px solid #05A9FF;
+}
+
+.news:hover {
+	color: #05A9FF;
+	border: 1px solid #05A9FF;
+
+}
 
 
 @media (min-width: 768px) {
 	
 	.plot {
-		height: 55vh;
+		height: 50vh;
 	}
 
 	#secs {
-		height: 75vh;
+		max-height: 70vh;
 		overflow: auto;
 	}
 
 	#news {
-		height: 75vh;
+		max-height: 70vh;
 		overflow: auto;
 	}
 

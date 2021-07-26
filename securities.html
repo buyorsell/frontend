@@ -27,13 +27,13 @@
 	<nav class="d-flex justify-content-center" style="overflow-x: auto;">
 		<ul class="nav">
 			<li class="m-2 nav-item">
-				<a class="nav-link text-dark rounded" href="news.html">Новости</a>
+				<a class="nav-link" href="news.html">Новости</a>
 			</li>
 			<li class="m-2 nav-item">
-				<a class="nav-link text-white rounded active" href="securities.html">Аналитика</a>
+				<a class="nav-link active" href="securities.html">Аналитика</a>
 			</li>
 			<li class="m-2 nav-item">
-				<a class="nav-link text-dark rounded" href="graphics.html">Графики</a>
+				<a class="nav-link" href="graphics.html">Графики</a>
 			</li>
 		</ul>
 	</nav>
@@ -43,10 +43,9 @@
 		</div>
 	</main>
 	<script id="template-sec" type="text/template">
-		<div class="my-2 col-sm-3">
-			<div class="card">
-				<div class="card-body">
-					<a class="d-flex justify-content-between align-items-center text-dark text-decoration-none" onclick="openSecRate('<%= sec_id %>')">
+		<div class="my-2 col-md-6 col-lg-3">
+			<div class="p-2 list-item">
+			<a class="d-flex justify-content-between align-items-center text-dark text-decoration-none" onclick="openSecRate('<%= sec_id %>')">
 						<div class="d-flex align-items-center">
 							<img class=" rounded-circle" src="logos/<%= sec_id %>.svg" height="40">
 							<div class="mx-3 d-flex flex-column">
@@ -56,8 +55,7 @@
 						</div>
 						<span class="bos <%= bos >= 0 ? "pos" : "neg" %>"> <%= Math.abs(bos) %></span>
 					</a>
-				</div>
-			</div>
+		</div>
 		</div>
 	</script>
 </body>
